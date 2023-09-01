@@ -1,0 +1,26 @@
+{
+  "name": "loginwithsessionsfastifyexample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index",
+    "build": "tsc -p tsconfig.json",
+    "prod-start": "node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async-mutex": "^0.4.0",
+    "fastify": "^4.22.1",
+    "ts-node": "^10.9.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "@types/uuid": "^9.0.3",
+    "typescript": "^5.2.2"
+  }
+}
