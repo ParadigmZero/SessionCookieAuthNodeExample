@@ -54,8 +54,6 @@ function clearAll() {
 
 // Used with login
 async function get(user : string) : Promise<string> {
-  clearExpired();
-
   const sessionRef : Session = {
     id : `session=${uuidv4()}`,
     username : user,
@@ -70,9 +68,6 @@ async function get(user : string) : Promise<string> {
 
 // Check session
 async function check(id : string) : Promise<boolean> {
-  // clear stack, and all expired sessions should disappear
-  clearExpired();
-
   // check session is there
   const session : (Session|undefined) = sessionsMap[id];
 
@@ -92,7 +87,6 @@ async function sessionManager(command : SessionCommand, payload? : string) : Pro
         case SessionCommand.GET:
           return get(payload as string);
         case SessionCommand.CLEAR_SINGLE:
-          clearExpired();
           delete sessionsMap[payload as string];
           break;
         case SessionCommand.CLEAR_EXPIRED:
